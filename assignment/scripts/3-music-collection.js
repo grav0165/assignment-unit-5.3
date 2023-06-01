@@ -40,5 +40,12 @@ showCollection(collection);
 /// find artist function
 
 function findByArtist(artistVar) {
+    let resultsFound =[];
 
+    for(let i=0; i<collection.length; i++) {
+        if(collection[i].artist === artistVar) {
+            resultsFound.push(collection[i]);
+        }
+    }
+    return resultsFound;
 } // end findByArtist function

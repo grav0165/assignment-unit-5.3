@@ -52,18 +52,22 @@ function findByArtist(artistVar) {
 
 
 function search(searchCriteria) {
-    if(searchCriteria === null || Objects.keys(searchCriteria).length === 0) {
+    if(!searchCriteria || Object.keys(searchCriteria).length === 0) {
         return collection;
     }
 
     let searchResult = [];
 
     for(i=0; i<collection.length; i++) {
-        if(collection[i].yearPublished === item) {
-            if(collection[i].artist === item) {
-                searchResult.push(collection[i]);
+        if (!searchCriteria.artist || searchCriteria.artist === collection[i].artist ){
+            if (!searchCriteria.year || searchCriteria.year === collection[i].yearPublished ){
+                if (!searchCriteria.title || searchCriteria.title === collection[i].title ){
+                    searchResult.push(collection[i]);
+                }
             }
         }
     }
     return searchResult;
 } // end search function
+
+console.log(search({artist: "Prodigy", year: 1997}));

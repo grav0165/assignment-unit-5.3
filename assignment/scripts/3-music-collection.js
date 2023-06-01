@@ -24,4 +24,15 @@ console.log(addToCollection("No Control", "Bad Religion", 1989));
 
 console.log(addToCollection("Rumours", "Fleetwood Mac", 1977));
 
-console.log(collection);
+console.log(collection); 
+
+/// showCollection function
+
+function showCollection(array) {
+    console.log(`There are ${array.length} items in my collection.`)
+    for(i=0; i<array.length; i++) {
+        console.log(`${array[i].title} by ${array[i].artist} published in ${array[i].yearPublished}.`)
+    }
+} // end showCollection function
+
+showCollection(collection);

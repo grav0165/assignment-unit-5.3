@@ -36,3 +36,9 @@ function showCollection(array) {
 } // end showCollection function
 
 showCollection(collection);
+
+/// find artist function
+
+function findByArtist(artistVar) {
+
+} // end findByArtist function

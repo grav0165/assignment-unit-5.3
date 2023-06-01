@@ -71,3 +71,6 @@ function search(searchCriteria) {
 } // end search function
 
 console.log(search({artist: "Prodigy", year: 1997}));
+console.log(search({artist: "Queens of the Stone Age", year: 2002}));
+console.log(search({title: "Emotion", year: 2015}));
+console.log(search({}));

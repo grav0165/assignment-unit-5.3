@@ -51,15 +51,19 @@ function findByArtist(artistVar) {
 } // end findByArtist function
 
 
-function search(artist, year) {
-    let searchFound = [];
+function search(searchCriteria) {
+    if(searchCriteria === null || Objects.keys(searchCriteria).length === 0) {
+        return collection;
+    }
 
-    for (i=0; i<collection.length; i++) {
-        if(collection[i].artist === artist && collection[i].yearPublished === year) {
-            searchFound.push(collection[i])
-        } else if(artist === false && year === false) {
-            return collection;
+    let searchResult = [];
+
+    for(i=0; i<collection.length; i++) {
+        if(collection[i].yearPublished === item) {
+            if(collection[i].artist === item) {
+                searchResult.push(collection[i]);
+            }
         }
     }
-     
+    return searchResult;
 } // end search function

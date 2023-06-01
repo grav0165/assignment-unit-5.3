@@ -23,3 +23,5 @@ console.log(addToCollection("Emotion", "Carly Rae Jepsen", 2015));
 console.log(addToCollection("No Control", "Bad Religion", 1989));
 
 console.log(addToCollection("Rumours", "Fleetwood Mac", 1977));
+
+console.log(collection);

@@ -51,6 +51,15 @@ function findByArtist(artistVar) {
 } // end findByArtist function
 
 
-function search() {
+function search(artist, year) {
+    let searchFound = [];
 
+    for (i=0; i<collection.length; i++) {
+        if(collection[i].artist === artist && collection[i].yearPublished === year) {
+            searchFound.push(collection[i])
+        } else if(artist === false && year === false) {
+            return collection;
+        }
+    }
+     
 } // end search function

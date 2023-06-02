@@ -13,6 +13,8 @@ function addToCollection(num0, num1, num3, num4) {
   return addAlbum;
 } // end addToCollection
 
+// Collection creation
+
 console.log(addToCollection("Transgender Street Legend Vol. 2", "Left at London", 2020, 
 [{name: "My Friends are Kinda Strange", duration: "3:43"}, {name: "Do You See Us?", duration: "2:40"}, 
 {name: "Safety First", duration: "4:07"}, {name: "6 Feet", duration: "2:37"}, 
@@ -60,6 +62,8 @@ console.log(addToCollection("Rumours", "Fleetwood Mac", 1977,
 
 console.log(collection); 
 
+// end collection creation
+
 /// showCollection function
 
 function showCollection(array) {
@@ -96,12 +100,14 @@ function search(searchCriteria) {
         if (!searchCriteria.artist || searchCriteria.artist === collection[i].artist ){
             if (!searchCriteria.year || searchCriteria.year === collection[i].yearPublished ){
                 if (!searchCriteria.title || searchCriteria.title === collection[i].title ){
+                    if(!searchCriteria.tracks || searchCriteria.tracks === collection[i].tracks) {
                     searchResult.push(collection[i]);
                 }
             }
         }
     }
     return searchResult;
+  }   
 } // end search function
 
 console.log(search({artist: "Prodigy", year: 1997}));

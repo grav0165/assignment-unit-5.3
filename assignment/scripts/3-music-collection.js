@@ -1,6 +1,9 @@
 console.log('***** Music Collection *****')
+// collection array creation
 
 let collection = [];
+
+// addToCollection function creation
 
 function addToCollection(num0, num1, num3, num4) {
     let addAlbum = {
@@ -13,7 +16,9 @@ function addToCollection(num0, num1, num3, num4) {
   return addAlbum;
 } // end addToCollection
 
-// Collection creation
+// endd addToCollection creation
+
+// creating array of albums
 
 console.log(addToCollection("Transgender Street Legend Vol. 2", "Left at London", 2020, 
 [{name: "My Friends are Kinda Strange", duration: "3:43"}, {name: "Do You See Us?", duration: "2:40"}, 
@@ -60,16 +65,19 @@ console.log(addToCollection("Rumours", "Fleetwood Mac", 1977,
 {name: "Songbird", duration: "3:21"}, {name: "Go Your Own Way", duration: "3:40"},
 {name: "Second Hand News", duration: "2:43"}]));
 
+// end of album arrays
+
+// console.logging current collection
+
 console.log(collection); 
 
-// end collection creation
 
 /// showCollection function
 
 function showCollection(array) {
     console.log(`There are ${array.length} items in my collection.`)
     for(i=0; i<array.length; i++) {
-        console.log(`${array[i].title} by ${array[i].artist} published in ${array[i].yearPublished}:.`);
+        console.log(`${array[i].title} by ${array[i].artist} published in ${array[i].yearPublished}:`);
         for(a=0; a < array[i].tracks.length; a++){
               console.log(`${a+1}. ${array[i].tracks[a].name}: ${array[i].tracks[a].duration}`)
         }
@@ -77,6 +85,8 @@ function showCollection(array) {
 } // end showCollection function
 
 showCollection(collection);
+
+// end showCollection function
 
 /// find artist function
 
@@ -91,6 +101,8 @@ function findByArtist(artistVar) {
     return resultsFound;
 } // end findByArtist function
 
+/// start search function
+
 
 function search(searchCriteria) {
     if(!searchCriteria || Object.keys(searchCriteria).length === 0) {
@@ -100,10 +112,16 @@ function search(searchCriteria) {
     let searchResult = [];
 
     for(i=0; i<collection.length; i++) {
-        if (!searchCriteria.artist || searchCriteria.artist === collection[i].artist ){
+        if (searchCriteria.trackName) {
+            for(a=0; a<collection[i].tracks.length; a++) {
+                if(searchCriteria.trackName === collection[i].tracks[a].name) {
+                    searchResult.push(collection[i]);
+                }
+            }
+        }
+        else if (!searchCriteria.artist || searchCriteria.artist === collection[i].artist ){
             if (!searchCriteria.year || searchCriteria.year === collection[i].yearPublished ){
-                if (!searchCriteria.title || searchCriteria.title === collection[i].title ){
-                    if(!searchCriteria.tracks || searchCriteria.tracks === collection[i].tracks) {
+                if (!searchCriteria.title || searchCriteria.title === collection[i].title ) {
                     searchResult.push(collection[i]);
                 }
             }
@@ -111,13 +129,16 @@ function search(searchCriteria) {
     }
     return searchResult;
   }   
-} // end search function
+ // end search function
 
 console.log(search({artist: "Prodigy", year: 1997}));
 console.log(search({artist: "Queens of the Stone Age", year: 2002}));
 console.log(search({title: "Emotion", year: 2015}));
 console.log(search({}));
 
+// tracks testing
 
-/// tracks
+console.log(search({trackName: "The Chain"}));
+
+
 

@@ -69,7 +69,10 @@ console.log(collection);
 function showCollection(array) {
     console.log(`There are ${array.length} items in my collection.`)
     for(i=0; i<array.length; i++) {
-        console.log(`${array[i].title} by ${array[i].artist} published in ${array[i].yearPublished}.`)
+        console.log(`${array[i].title} by ${array[i].artist} published in ${array[i].yearPublished}:.`);
+        for(a=0; a < array[i].tracks.length; a++){
+              console.log(`${a+1}. ${array[i].tracks[a].name}: ${array[i].tracks[a].duration}`)
+        }
     }
 } // end showCollection function
 
